@@ -3,31 +3,35 @@ package miniProject;
 import java.time.*;
 import java.util.*;
 
-public class Account {
-	
+public class Account
+{
 	User U;
-	private String password;
-	String createdOn; 	//UTC datetime that the user account was created on Twitter.
-	
-	Account(){
+	String password;
+	String createdOn; // UTC datetime that the user account was created on Twitter.
+
+	Account()
+	{
 		U = new User();
 		Instant instant = Instant.now();
 		createdOn = instant.toString();
 	}
-	
-	void accept(Scanner sc) {
+
+	void accept(Scanner sc)
+	{
 		System.out.print("Enter name: ");
 		U.name = sc.nextLine();
-		
+
 		System.out.print("Enter password: ");
 		setPassword(sc.nextLine());
 	}
 
-	public String getPassword() {
+	public String getPassword()
+	{
 		return password;
 	}
 
-	public void setPassword(String password) {
+	public void setPassword(String password)
+	{
 		this.password = password;
 	}
 }

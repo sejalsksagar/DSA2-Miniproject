@@ -1,11 +1,13 @@
 package miniProject;
 
 //node for graph
-public class UserGNode {
+public class UserGNode
+{
 	User U;
 	UserGNode link;
-	
-	UserGNode(User U){
+
+	UserGNode(User U)
+	{
 		this.U = U;
 		link = null;
 	}
