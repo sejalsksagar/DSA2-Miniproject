@@ -59,7 +59,7 @@ public class Account extends User{
 			case 1:
 				break;
 				
-			case 2: Twitter.explore(sc);
+			case 2: Twitter.explore(sc,A);
 				break;
 				
 			case 3:
@@ -71,4 +71,3 @@ public class Account extends User{
 		}while(ch!=0);
 	}
 }
-

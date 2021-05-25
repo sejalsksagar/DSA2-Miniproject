@@ -2,7 +2,6 @@ package miniProject;
 
 import java.util.*;
 
-
 public class Twitter {
 	//graph using Adjacency list
 	static ArrayList<AccGNode> GHead;
@@ -144,7 +143,19 @@ public class Twitter {
         else
             return null;
     }
+    
+    static Account searchUsernameGraph(String un){ 
+        Iterator<AccGNode> ptr = GHead.iterator();
 
+        while(ptr.hasNext())
+        {
+        	Account A1=ptr.next().A;
+        	if(un.compareToIgnoreCase(A1.username)==0)
+                return A1;
+        }
+        
+       return null;        
+    }
     
 	void createAccount(Scanner sc) {
 		Account A = new Account();
@@ -214,13 +225,14 @@ public class Twitter {
 			A.activity(sc, A);
 	}
 	
-	static void explore(Scanner sc) {
+	static void explore(Scanner sc,Account A) {
 		byte ch;
 		do {
 			System.out.println("____________________________________");
-			System.out.println("********* SEARCH **********");
+			System.out.println("********* EXPLORE **********");
 			System.out.println("0. Back");
-			System.out.println("1. Username ");
+			System.out.println("1. Search Username ");
+			System.out.println("2. Follow a user");
 			//most popular user
 			System.out.print("Enter your choice: ");
 			System.out.println("____________________________________");
@@ -239,9 +251,36 @@ public class Twitter {
 						//follow? / unfollow? / following?
 					}
 					break;
+					
+			case 2:
+				System.out.print("Enter username to follow: ");
+				String search = sc.nextLine();
+				Account F = searchUsernameGraph(search);
+				if(F == null)
+					System.out.println("Username not found");
+				else
+				{
+					for(AccGNode gN : GHead)
+					{
+						if(gN.A == F)
+						{
+							AccGNode temp = new AccGNode(F);
+							if(gN.link == null)
+								gN.link = temp;
+							else
+							{
+								temp.link = gN.link;
+								gN.link = temp;
+							}
+							A.friendsCount++;
+							break;
+						}
+					}
+					System.out.println("Username found");
+					System.out.println("You now follow @" + search);
+				}
+				break;
 			}
 		}while(ch != 0);
-		
-		
 	}
 }
