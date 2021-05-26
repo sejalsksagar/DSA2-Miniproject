@@ -222,10 +222,10 @@ public class Twitter {
 		} while (true);
 
 		if (loggedIn)
-			A.activity(sc, A);
+			A.activity(sc, A, GHead);
 	}
 	
-	static void explore(Scanner sc,Account A) {
+	static void explore(Scanner sc,Account A,ArrayList<AccGNode> GHead) {
 		byte ch;
 		do {
 			System.out.println("____________________________________");
@@ -235,9 +235,9 @@ public class Twitter {
 			System.out.println("2. Follow a user");
 			//most popular user
 			System.out.print("Enter your choice: ");
-			System.out.println("____________________________________");
 			ch = sc.nextByte();
 			sc.nextLine();
+			System.out.println("____________________________________");
 			switch(ch) {
 			case 0: break;
 			
@@ -273,6 +273,7 @@ public class Twitter {
 								gN.link = temp;
 							}
 							A.friendsCount++;
+							F.followersCount++;
 							break;
 						}
 					}

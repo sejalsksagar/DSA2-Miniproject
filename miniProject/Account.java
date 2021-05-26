@@ -4,7 +4,7 @@ package miniProject;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.LocalDateTime;
-import java.util.Scanner;
+import java.util.*;
 
 public class Account extends User{
 	
@@ -35,7 +35,7 @@ public class Account extends User{
 		this.password = password;
 	}
 	
-	void activity(Scanner sc, Account A) {
+	void activity(Scanner sc, Account A,ArrayList<AccGNode> GHead) {
 		
 		byte ch;
 		do {
@@ -59,7 +59,7 @@ public class Account extends User{
 			case 1:
 				break;
 				
-			case 2: Twitter.explore(sc,A);
+			case 2: Twitter.explore(sc,A,GHead);
 				break;
 				
 			case 3:
