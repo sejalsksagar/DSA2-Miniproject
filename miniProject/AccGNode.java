@@ -1,11 +1,13 @@
 package miniProject;
 
 //node for graph
-public class AccGNode {
+public class AccGNode
+{
 	Account A;
 	AccGNode link;
-	
-	AccGNode(Account A) {
+
+	AccGNode(Account A)
+	{
 		this.A = A;
 		link = null;
 	}

@@ -1,6 +1,7 @@
 package miniProject;
 
-public class Tweet {
+public class Tweet
+{
 	String createdAt;	//UTC time when this Tweet was created.
 	String text;
 	User U;		//The user who posted this Tweet.

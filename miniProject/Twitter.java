@@ -243,18 +243,18 @@ public class Twitter
 		if (loggedIn)
 			A.activity(sc, A, GHead);
 	}
-	
-	//ignore this
-	//this is to debug
+
+	// ignore this
+	// this is to debug
 	static void display()
 	{
-		for(AccGNode ii:GHead)
+		for (AccGNode ii : GHead)
 		{
-			AccGNode pp=ii;
-			while(pp!=null)
+			AccGNode pp = ii;
+			while (pp != null)
 			{
-				System.out.print(pp.A.username+"->");
-				pp=pp.link;
+				System.out.print(pp.A.username + "->");
+				pp = pp.link;
 			}
 			System.out.println();
 		}
@@ -342,7 +342,7 @@ public class Twitter
 						}
 					}
 					break;
-					
+
 				case 3:
 					System.out.print("Enter username to unfollow: ");
 					String search1 = sc.nextLine();
@@ -352,28 +352,28 @@ public class Twitter
 						{
 							AccGNode locate = gN.link;
 							AccGNode prev = gN.link;
-							for (locate = gN.link, prev = gN.link; locate != null && locate.A.username != search1;
-									prev = locate, locate = locate.link)
+							for (locate = gN.link, prev = gN.link; locate != null
+									&& locate.A.username.compareTo(search1) != 0; prev = locate, locate = locate.link)
 							{
 								System.out.println(locate.A.username);
 							}
-							if (locate == null)	
-								System.out.println("You dont follow "+ search1);
-							else if (locate.A.username == gN.A.username)//first node
+							if (locate == null)
+								System.out.println("You dont follow " + search1);
+							else if (locate.A.username.compareTo(gN.link.A.username) == 0)// first node
 							{
 								gN.link = locate.link;
-								System.out.println("You unfollowed "+ search1);
+								System.out.println("You unfollowed " + search1);
 							}
 							else
 							{
 								prev.link = locate.link;
-								System.out.println("You unfollowed "+ search1);
+								System.out.println("You unfollowed " + search1);
 							}
 							break;
 						}
 					}
 					break;
-					
+
 				case 8:
 					display();
 			}
