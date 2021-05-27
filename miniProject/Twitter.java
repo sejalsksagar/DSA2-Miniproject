@@ -174,6 +174,16 @@ public class Twitter
 		return null;
 	}
 
+	void addAccount(Account A) {
+		// add account to graph
+		AccGNode a = new AccGNode(A);
+		A.gHead = a;
+		GHead.add(a);
+
+		// add account to avl tree
+		accRoot = insert(accRoot, A);
+	}
+
 	void createAccount(Scanner sc)
 	{
 		Account A = new Account();
@@ -187,15 +197,36 @@ public class Twitter
 		} while (searchUsername(un) != null);
 		A.username = un;
 		A.accept(sc);
-
-		// add user to graph
-		AccGNode a = new AccGNode(A);
-		GHead.add(a);
-
-		// add account to avl tree
-		accRoot = insert(accRoot, A);
-
+		addAccount(A);
 		System.out.println("Your account has been successfully created!");
+	}
+
+	
+	//default users for debugging
+	void defaultUsers() {
+		Account A1 = new Account();
+		A1.username = "sejal09";
+		A1.name = "Sejal Kshirsagar";
+		A1.setPassword("111");
+		addAccount(A1);
+		
+		Account A2 = new Account();
+		A2.username = "ketaki09";
+		A2.name = "Ketaki Kothale";
+		A2.setPassword("111");
+		addAccount(A2);
+		
+		Account A3 = new Account();
+		A3.username = "akanksha09";
+		A3.name = "Akanksha Kulkarni";
+		A3.setPassword("111");
+		addAccount(A3);
+		
+		Account A4 = new Account();
+		A4.username = "amruta09";
+		A4.name = "Amruta Kotgire";
+		A4.setPassword("111");
+		addAccount(A4);
 	}
 
 	void login(Scanner sc)
@@ -302,7 +333,7 @@ public class Twitter
 					if (F == null)
 						System.out.println("Username not found");
 					else
-					{
+					{	F.viewProfile();
 						boolean isAlreadyFollow = false;
 						for (AccGNode gNode : GHead)
 						{
