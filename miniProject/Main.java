@@ -10,6 +10,7 @@ public class Main
 		byte ch;
 		Scanner sc = new Scanner(System.in);
 		Twitter T = new Twitter();
+		T.defaultUsers();
 
 		do
 		{
