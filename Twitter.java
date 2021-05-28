@@ -124,6 +124,23 @@ public class Twitter {
         return root;
     }
     
+    AccTNode minValueNode(AccTNode node) 
+    { 
+    	AccTNode current = node; 
+  
+        /* loop down to find the leftmost leaf */
+        while (current.left != null) 
+        current = current.left; 
+  
+        return current; 
+    } 
+  
+    int max(int a, int b) 
+    { 
+        return (a > b) ? a : b; 
+    } 
+    
+   
     static Account searchUsername(String un){ 
         AccTNode ptr = accRoot;
         boolean flag = false;
@@ -179,6 +196,106 @@ public class Twitter {
 		
 		System.out.println("Your account has been successfully created!");
 	}
+	
+	static AccTNode searchUsername1(String un){ 
+        AccTNode ptr = accRoot;
+        boolean flag = false;
+
+        while(ptr != null){
+            if(un.compareToIgnoreCase(ptr.A.username) == 0){
+                flag = true;
+                break;
+            }
+            if(un.compareToIgnoreCase(ptr.A.username) < 0)
+                ptr = ptr.left;
+            else 
+                ptr = ptr.right;
+        }
+
+        if(flag)
+            return ptr;
+        else
+            return null;
+    }
+	
+	 AccTNode deleteAccount(AccTNode root, String und) {
+	    	Scanner sc1 = new Scanner(System.in);
+	    	AccTNode A;
+	    	if(root == null) {
+				return root;
+			}
+	    	A = searchUsername1(und);
+	    	if(A == null) {
+	    		System.out.println("Username not found!");            
+	    	}
+	    	else {
+	    		System.out.println("Enter your password : ");
+	    		String pwd = sc1.next();
+	    		if(! pwd.equals(A.A.password)) {
+	    			System.out.println("Incorrect Password...Try again"); 
+	    		}
+	    		else {
+	    			if(und.compareTo(A.A.username) < 0) {       //left subtree 
+	    				root.left = deleteAccount(root.left , und); //recursive call
+	    			}
+	    			else if(und.compareTo(A.A.username) > 0) {      //right subtree 
+	    				root.right = deleteAccount(root.right , und); //recursive call
+	    			}
+	    			else {      //with only one child or no child 
+	    				if ((root.left == null) || (root.right == null)) { 
+	    					AccTNode temp = null; 
+	    	                if (temp == root.left) //LEFT CHILD IS PRESENT OR NOT
+	    	                    temp = root.right; 
+	    	                else
+	    	                    temp = root.left; 
+	    	  
+	    	                if (temp == null)  //// No child case 
+	    	                { 
+	    	                    temp = root; 
+	    	                    root = null; 
+	    	                } 
+	    	                else // One child case 
+	    	                    root = temp; // Copy the contents of the non-empty child 
+	    	            }
+	    				else {     //node with two children
+	    					 AccTNode temp = minValueNode(root.right); //Get the inorder successor (smallest in the right subtree)
+	    					 root.A.username = temp.A.username;
+	    					 root.right = deleteAccount(root.right, temp.A.username); //Delete the inorder successor
+	    				}
+	    				if(root == null) {
+	    					return root;
+	    				}
+	    				root.h = max(height(root.left), height(root.right)) + 1;
+	    				System.out.println(root);
+	    				int bl = balanceFactor(root);
+	    				
+	    				if (bl > 1 && balanceFactor(root.left) >= 0) 
+	    		            return RR(root); 
+	    		  
+	    		        // Left Right Case 
+	    		        if (bl > 1 && balanceFactor(root.left) < 0) 
+	    		        { 
+	    		            root.left = LL(root.left); 
+	    		            return RR(root); 
+	    		        } 
+	    		  
+	    		        // Right Right Case 
+	    		        if (bl < -1 && balanceFactor(root.right) <= 0) 
+	    		            return LL(root); 
+	    		  
+	    		        // Right Left Case 
+	    		        if (bl < -1 && balanceFactor(root.right) > 0) 
+	    		        { 
+	    		            root.right = RR(root.right); 
+	    		            return LL(root); 
+	    		        } 
+	    			}
+	    		}
+	    		 
+	    	}
+	    	return root;
+	    }
+	    
 	
 	void login(Scanner sc)
 	{
