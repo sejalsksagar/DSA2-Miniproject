@@ -10,14 +10,15 @@ public class Main
 		byte ch;
 		Scanner sc = new Scanner(System.in);
 		Twitter T = new Twitter();
+		T.defaultUsers();
 
 		do
 		{
 			System.out.println("____________________________________");
-			System.out.println("****** WELCOME TO TWITTER *******");
+			System.out.println("************* TWITTER **************");
 			System.out.println("0. Exit");
-			System.out.println("1. Create Account");
-			System.out.println("2. Login");
+			System.out.println("1. Sign up");
+			System.out.println("2. Log in");
 			System.out.print("Enter your choice: ");
 			ch = sc.nextByte();
 			sc.nextLine(); // '\n'
@@ -33,7 +34,8 @@ public class Main
 					T.createAccount(sc);
 					break;
 
-				case 2: T.login(sc);
+				case 2:
+					T.login(sc);
 					break;
 
 				default:
