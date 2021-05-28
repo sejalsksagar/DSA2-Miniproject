@@ -1,25 +1,27 @@
 package miniProject;
 
-
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.LocalDateTime;
-import java.util.Scanner;
+import java.util.*;
 
-public class Account extends User{
-	
+public class Account extends User
+{
+	AccGNode gHead;
 	private String password;
-	String createdOn; 	//UTC datetime that the user account was created on Twitter.
-	
-	Account(){
+	String createdOn; // UTC datetime that the user account was created on Twitter.
+
+	Account()
+	{
 		Instant instant = Instant.now();
 		createdOn = instant.toString();
 		LocalDateTime ldt = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
-		super.joined = "Joined "+ldt.getMonth()+" "+ldt.getYear();
+		super.joined = "Joined " + ldt.getMonth() + " " + ldt.getYear();
 	}
-	
-	void accept(Scanner sc) {
-		
+
+	void accept(Scanner sc)
+	{
+
 		System.out.print("Enter name: ");
 		name = sc.nextLine();
 
@@ -27,20 +29,24 @@ public class Account extends User{
 		setPassword(sc.nextLine());
 	}
 
-	public String getPassword() {
+	public String getPassword()
+	{
 		return password;
 	}
 
-	public void setPassword(String password) {
+	public void setPassword(String password)
+	{
 		this.password = password;
 	}
-	
-	void activity(Scanner sc, Account A) {
-		
+
+	void activity(Scanner sc, ArrayList<AccGNode> GHead)
+	{
+
 		byte ch;
-		do {
+		do
+		{
 			System.out.println("____________________________________");
-			System.out.println("******** Welcome @"+username+" *********");
+			System.out.println("******** Welcome @" + username + " *********");
 			System.out.println("0. Log out");
 			System.out.println("1. Home");
 			System.out.println("2. Explore");
@@ -51,24 +57,130 @@ public class Account extends User{
 			System.out.print("Enter your choice: ");
 			ch = sc.nextByte();
 			System.out.println("____________________________________");
-			
+
+			switch (ch)
+			{
+				case 0:
+					break;
+
+				case 1:
+					break;
+
+				case 2: explore(sc, GHead);
+					break;
+
+				case 3:
+					break;
+
+				case 4: profile(sc, GHead);
+					break;
+			}
+		} while (ch != 0);
+	}
+	
+	void explore(Scanner sc, ArrayList<AccGNode> GHead) {
+		byte ch;
+		Account F;
+		String search;
+		boolean done = false;
+		
+		do {
+			System.out.println("____________________________________");
+			System.out.println("********* EXPLORE **********");
+			System.out.println("0. Back");
+			System.out.println("1. Search Username ");
+			System.out.println("2. Follow a user");
+			System.out.println("3. Unfollow a user");
+			System.out.println("8. Debug Graph");
+			System.out.print("Enter your choice: ");
+			ch = sc.nextByte();
+			sc.nextLine();
+			System.out.println("____________________________________");
 			switch(ch) {
-			case 0:
-				break;
-				
-			case 1:
-				break;
-				
-			case 2: Twitter.explore(sc);
-				break;
-				
-			case 3:
-				break;
-				
-			case 4: A.profile(sc);
-				break;
+			case 0: break;
+			
+			case 1: System.out.print("Enter username to search: ");
+					F = Twitter.searchUsername(sc.nextLine());
+					if (F == null) System.out.println("Entered username doesn't exist.");
+					else
+					{
+						System.out.println("Username found.");
+						F.viewProfile();
+					}
+					break;
+			
+			case 2: System.out.print("Enter username to follow: ");
+					search = sc.nextLine();
+					F = Twitter.searchUsername(search);
+					if (F == null) System.out.println("Entered username doesn't exist.");
+					else {
+						done = followAnAccount(GHead, F);
+						if(done) {
+							F.viewProfile();
+							System.out.println("You now follow @" + search);
+						}
+						else System.out.println("You already follow this account");
+					}
+					break;
+					
+			case 3: System.out.print("Enter username to unfollow: ");
+					search = sc.nextLine();
+					F = Twitter.searchUsername(search);
+					if (F == null) System.out.println("Entered username doesn't exist.");
+					else {
+						done = unfollowAnAccount(GHead, F);
+						if(done) {
+							F.viewProfile();
+							System.out.println("You unfollowed @" + search);
+						}
+						else System.out.println("You don't follow this account");
+					}
+					break;
+					
+			case 8: Twitter.display();
+					 break;
+					 
+			default: System.out.println("Invalid choice.");
 			}
 		}while(ch!=0);
 	}
+	
+	boolean followAnAccount(ArrayList<AccGNode> GHead, Account F) {
+		AccGNode ptr = gHead;
+		while (ptr != null)
+		{
+			if (ptr.A.username == F.username)
+				return false; //already following
+			ptr = ptr.link;
+		}
+		
+		AccGNode temp = new AccGNode(F);
+		if (gHead.link == null)
+				gHead.link = temp;
+		else
+		{
+			temp.link = gHead.link;
+			gHead.link = temp;
+		}
+		friendsCount++;
+		F.followersCount++;
+		return true; //successfully followed 
+	}
+	
+	boolean unfollowAnAccount(ArrayList<AccGNode> GHead, Account F) {
+		AccGNode prev = gHead;
+		AccGNode ptr = gHead.link;
+		while(ptr!=null) {
+			if(ptr.A.equals(F)) {
+				prev.link = ptr.link;
+				ptr = null;
+				friendsCount--;
+				F.followersCount--;
+				return true; //successfully unfollowed
+			}
+			prev = ptr;
+			ptr = ptr.link;
+		}
+		return false; //not already following
+	}
 }
-
