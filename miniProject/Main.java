@@ -8,6 +8,7 @@ public class Main {
 		byte ch;
 		Scanner sc = new Scanner(System.in);
 		Twitter T = new Twitter();
+		T.defaultUsers();
 		
 		do {
 			System.out.println("____________________________________");
@@ -38,3 +39,21 @@ public class Main {
 	}
 
 }
+/**
+ * 0. Log out
+ * 1. View my profile
+ * 		1. View followers
+ * 		2. View following
+ * 		3. View Tweets
+ * 2. Search a user
+ * 		1. View followers
+ * 		2. View following
+ * 		3. View Tweets
+ * 3. Display username-wise sorted list (avl tree inorder)
+ * 4. Follow an user
+ * 5. Unfollow an user
+ * 6. View users connected at k-levels (bfs)
+ * 7. Most popular users (heap-sort)
+ * 8. Tweet
+ * 9. Delete my account
+ */
