@@ -312,15 +312,19 @@ public class Twitter
         	System.out.println("NO ACCOUNTS AVAILABLE");
             return;
         }
-		System.out.println("USERNAME" +"\t\t"+ "NAME");
+		System.out.println("\tUSERNAME" +"\t\t"+ "NAME");
+		System.out.println("-----------------------------------------");
 		inorder(accRoot);
 	}
 	//AVL Tree Inorder traversal,L-N-R
-	static void inorder(AccTNode node)             
-    {
-        inorder(node.left);
-        System.out.println(node.A.username+"\t\t"+node.A.name+"\n");
-        inorder(node.right);         
+	static void inorder(AccTNode root)             
+	{
+		if(root!=null) {
+			inorder(root.left);
+	        System.out.format("%15s %20s",root.A.username,root.A.name);
+	        System.out.println("\n");
+	        inorder(root.right); 
+		}
     }
 
 	//for debugging graph
