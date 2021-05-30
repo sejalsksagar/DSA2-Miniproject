@@ -14,7 +14,7 @@ public class Tweet {
 		createdAt = ldt.getDayOfMonth() + " " + ldt.getMonth() + " " + ldt.getYear();
 		System.out.println("********** TWEET ***********");
 		System.out.println("What's happening? : ");
-		text = sc.next();
+		text = sc.nextLine();
 	}
 	
 	void display(String username){
