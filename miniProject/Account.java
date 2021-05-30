@@ -78,7 +78,6 @@ public class Account extends User
 							else
 							{
 								System.out.println("Username found.");
-								F.viewProfile();
 								F.profile(sc, GHead);
 							}
 							break;
