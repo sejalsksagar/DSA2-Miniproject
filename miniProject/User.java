@@ -1,198 +1,114 @@
-package MiniProject;
-import java.util.*;
+package miniProject;
 
-import MiniProject.Twitter;
-public class User {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class User
+{
+
 	static int counter = -1;
-	int id; //vertex
+	int id; // vertex
 	String name;
 	String username;
 	String joined;
+	int followersCount; // no. of followers this account currently has.
+	int friendsCount; // no. of users this account is following (AKA their ìfollowingsî).
+	int statusesCount; // no. of Tweets (including retweets) issued by the user.
 	String tweetStr;  //stores tweet
-	//String retweetStr;  //stores retweet
-	int followersCount; 	//no. of followers this account currently has.
-	int friendsCount; 	//no. of users this account is following (AKA their ‚Äúfollowings‚Äù).
-	int favouritesCount; 	//no. of Tweets this user has liked in the account‚Äôs lifetime.
-	int tweetCount; 	//no. of Tweets issued by the user.
-	ArrayList<String>str1 = new ArrayList<String>();
-	User(){
+	int tweetCount; 
+	ArrayList<Tweet>T = new ArrayList<Tweet>();
+
+	User()
+	{
 		counter++;
 		id = counter;
 		name = "";
 		username = "";
-		joined = " ";
+		joined = "";
 		followersCount = 0;
 		friendsCount = 0;
-		favouritesCount = 0;
-		tweetCount = 0;
+		statusesCount = 0;
 	}
 	
 	public void tweet(Scanner sc) {
-		//User u = new User();
-		char ch='n';
-		do {
-			System.out.println("Write your tweet : ");
-			tweetStr = sc.next();
-			
-			str1.add(tweetStr);
-			tweetCount = tweetCount + 1;
-			System.out.println("Do you want tweet again (y/n) :");
-			ch = sc.next().charAt(0);
-		}while(ch != 'n');
+		Tweet t = new Tweet(sc);
+		T.add(t);
+		statusesCount++;
 	}
 	
 	public void printTweet() {
-		 boolean ans = str1.isEmpty();
-		
-        if (ans == true) {
-        	System.out.println("Tweeted nothing!");
+        if (T.isEmpty()) {
+        	System.out.println("No tweets yet!");
         }else {
-        	System.out.println("Your tweets are :");
-        	for(int i = 0; i < str1.size();i++) {
-        		System.out.println(i+1  + "  " + str1.get(i));
+        	System.out.println("************ TWEETS ***************");
+        	for(int i = 0; i < T.size();i++) {
+        		System.out.println(i);
+        		T.get(i).display(username);
+        		System.out.println("-----------------------------------");
         	}
         }
-		 
-		
 	}
-	
-	public void printRetweet() {
-		 boolean ans = str1.isEmpty();
-	        if (ans == true) {
-	        	System.out.println("You tweeted nothing!");
-	        }else {
-	        	System.out.println("Your tweets are :");
-	        	System.out.println(str1);
-	        }
-		
-	}
-		
-	
-	void viewProfile() {
-		System.out.println("------------------------------------------------");
-		System.out.println("* "+name.toUpperCase()+" *");
-		System.out.println("@"+username);
-		System.out.println(joined);
-		System.out.println(tweetCount+"Tweets");
-		System.out.println(favouritesCount+" Likes");
-		System.out.println(friendsCount+" Following   "+followersCount+" Followers");
-		System.out.println("------------------------------------------------");
-	}
-	
-	void profile(Scanner sc, ArrayList<AccGNode> GHead) {
-		byte ch;
-		viewProfile();
-		do {
-			System.out.println("____");
-			System.out.println("** VIEW **");
-			System.out.println("0. Back");
-			System.out.println("1. Following");
-			System.out.println("2. Followers");
-			System.out.println("3. Tweet"); //for writing tweet
-			System.out.println("4. Likes");
-			System.out.print("Enter your choice: ");
-			ch = sc.nextByte();
-			System.out.println("____");
-			switch(ch) {
-			case 0 :System.out.println("Exit");
-			break;
-			
-			case 1:
-				boolean found = false;
-				for (AccGNode gN : GHead)
-				{
-					if (gN.A.username.compareTo(username) == 0)
-					{
-						AccGNode ptr = gN.link;
-						while (ptr != null)
-						{
-							if (found == false)
-								System.out.println("Accounts you follow are : ");
-							System.out.println(ptr.A.username);
-							found = true;
-							ptr = ptr.link;
-						}
-						break;
-					}
-				}
-				if (found == false)
-					System.out.println("You don't follow anyone");
-				break;
 
-			case 2:
-				boolean found1 = false;
-				for (AccGNode gN : GHead)
-				{
-					AccGNode ptr = gN.link;
-					while (ptr != null)
-					{
-						if (ptr.A.username.compareTo(username) == 0)
-						{
-							if (found1 == false)
-								System.out.println("You are followed by : ");
-							System.out.println(gN.A.username);
-							found1 = true;
-						}
-						ptr = ptr.link;
-					}
-				}
-				if (found1 == false)
-					System.out.println("You aren't followed by anyone");
-				break;
-			case 3:tweet(sc);
-			break;
-			
-			
-			}
-		}while(ch != 0);
+	void viewProfile()
+	{
+		System.out.println("------------------------------------------------");
+		System.out.println("****** " + name.toUpperCase() + " ******");
+		System.out.println("@" + username);
+		System.out.println(joined);
+		System.out.println("\n"+statusesCount + " Tweets");
+		System.out.println(friendsCount + " Following   " + followersCount + " Followers");
+		System.out.println("------------------------------------------------");
 	}
-	
-	void heapify(ArrayList<AccGNode> GHead,int n, int i) {  //min heap
-		int smallest = i; // Initialize smalles as root
+
+	void heapify(ArrayList<Account> TMP, int n, int i) {  //min heap
+		int smallest = i; // Initialize smallest as root
         int l = 2 * i + 1; // left = 2*i + 1
         int r = 2 * i + 2; // right = 2*i + 2
-        if (l <  n && GHead.get(l).A.followersCount < GHead.get(smallest).A.followersCount)
+        if (l <  n && TMP.get(l).followersCount < TMP.get(smallest).followersCount)
             smallest = l;
  
         // If right child is smaller than smallest so far
-        if (r < n && GHead.get(r).A.followersCount < GHead.get(smallest).A.followersCount)
+        if (r < n && TMP.get(r).followersCount < TMP.get(smallest).followersCount)
             smallest = r;
  
         // If smallest is not root
         if (smallest != i) {
-
-        	Collections.swap(GHead, i, smallest);
+        	Collections.swap(TMP, i, smallest);
  
             // Recursively heapify the affected sub-tree
-            heapify(GHead,GHead.size(), smallest);
+            heapify(TMP, n, smallest);
         }
 	}
 	
-	void sortArraylist(ArrayList<AccGNode> GHead) {
-		for (int i = GHead.size() / 2 - 1; i >= 0; i--)
-            heapify(GHead,GHead.size(), i);
- 
+	void heapSort(ArrayList<AccGNode> GHead) {
+		
+		ArrayList<Account> TMP = new ArrayList<Account>();
+		for(AccGNode g : GHead)
+			TMP.add(g.A);
+		
+		for (int i = TMP.size()/2 - 1; i >= 0; i--)
+            heapify(TMP, TMP.size(), i);
+		
         // One by one extract an element from heap
-        for (int i = GHead.size()  - 1; i >= 0; i--) {
+        for (int i = TMP.size() - 1; i > 0; i--) {
              
             // Move current root to end
-        	Collections.swap(GHead, 0, i);
-        	
+        	Collections.swap(TMP, i, 0);
         	
             // call max heapify on the reduced heap
-            heapify(GHead,i, 0);
+            heapify(TMP, i, 0);
         }
+        
+        printMPU(TMP);
 	}
 	
 	
-	
-	void printMPU(ArrayList<AccGNode> GHead) {
-		System.out.println("Username " + "\t" + " Followers");
-		for (int i = 0; i < GHead.size(); ++i) {
-			System.out.println(GHead.get(i).A.username + "   " + GHead.get(i).A.followersCount);
+	void printMPU(ArrayList<Account> TMP) {
+		System.out.println("\tUsername " + "\t" + " Number of Followers");
+		for (int i = 0; i < TMP.size(); i++) {
+			System.out.format("\n %15s %10d", TMP.get(i).username, TMP.get(i).followersCount);
 		}
-            
-
+		System.out.println();
 	}
 }
-    

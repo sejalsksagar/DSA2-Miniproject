@@ -47,8 +47,8 @@ public class Account extends User
 		boolean done = false;
 		do
 		{
-			System.out.println("____________________________________");
-			System.out.println("******** Welcome @" + username + " *********");
+			System.out.println("_________________________________________");
+			System.out.println("\n******** Welcome @" + username + " *********\n");
 			System.out.println("0. Log out");
 			System.out.println("1. View your profile");
 			System.out.println("2. Search a user");
@@ -62,7 +62,7 @@ public class Account extends User
 			System.out.print("Enter your choice: ");
 			ch = sc.next().charAt(0);
 			sc.nextLine(); //'\n'
-			System.out.println("____________________________________");
+			System.out.println("_________________________________________");
 
 			switch (ch)
 			{
@@ -79,12 +79,13 @@ public class Account extends User
 							{
 								System.out.println("Username found.");
 								F.viewProfile();
+								F.profile(sc, GHead);
 							}
 							break;
 
 				case '3': System.out.println("Alphabetically sorted list of usernames (AVL Tree Inorder Traversal)");
 						  Twitter.displayAVL();
-					break;
+						  break;
 
 				case '4':  System.out.print("Enter username to follow: ");
 							search = sc.nextLine();
@@ -115,10 +116,16 @@ public class Account extends User
 							break;
 					
 				case '6': bfs(GHead);
-						break;
+						  break;
 					
+				case '7': heapSort(GHead);
+						  break;
+						  
+				case '8': tweet(sc);
+		 		  		  break;
+						
 				case '9': Twitter.display();
-				 		break;
+				 		  break;
 				 
 				default: System.out.println("Invalid choice.");
 			}
@@ -134,7 +141,7 @@ public class Account extends User
 		do
 		{
 			System.out.println("____________________________________");
-			System.out.println("********** VIEW **********");
+			System.out.println(" ************ VIEW ************");
 			System.out.println("0. Back");
 			System.out.println("1. Following");
 			System.out.println("2. Followers");
@@ -177,6 +184,11 @@ public class Account extends User
 					if (!found)
 						System.out.println("No followers yet.");
 					break;
+					
+				case '3': printTweet();
+						  break;
+						  
+				default: System.out.println("Invalid choice.");
 			}
 		} while (ch != '0');
 	}

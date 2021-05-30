@@ -1,12 +1,24 @@
 package miniProject;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.*;
 
 public class Tweet {
 	String createdAt;	//UTC time when this Tweet was created.
 	String text;
-	User U;		//The user who posted this Tweet.
-	Tweet retweetedStatus; //This attribute contains a representation of the original Tweet that was retweeted.
-	int retweetCount;	//Number of times this Tweet has been retweeted.
-	int favoriteCount;	//Indicates approximately how many times this Tweet has been liked by Twitter users.
-	boolean favorited; //Indicates whether this Tweet has been liked by the authenticating user.
-	boolean retweeted; //Indicates whether this Tweet has been Retweeted by the authenticating user.
+	
+	Tweet(Scanner sc){
+		Instant instant = Instant.now();
+		LocalDateTime ldt = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+		createdAt = ldt.getDayOfMonth() + " " + ldt.getMonth() + " " + ldt.getYear();
+		System.out.println("********** TWEET ***********");
+		System.out.println("What's happening? : ");
+		text = sc.next();
+	}
+	
+	void display(String username){
+		System.out.println("@"+username+" tweet on "+createdAt);
+		System.out.println(text);
+	}
 }

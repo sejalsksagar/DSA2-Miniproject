@@ -241,23 +241,23 @@ public class Twitter
 		addAccount(A7);
 		
 		//creating default graph
-		A0.followAnAccount(GHead, A1);
 		A0.followAnAccount(GHead, A2);
-		A1.followAnAccount(GHead, A3);
+		A0.followAnAccount(GHead, A1);
 		A1.followAnAccount(GHead, A4);
-		A2.followAnAccount(GHead, A5);
+		A1.followAnAccount(GHead, A3);
 		A2.followAnAccount(GHead, A6);
-		A3.followAnAccount(GHead, A1);
+		A2.followAnAccount(GHead, A5);
 		A3.followAnAccount(GHead, A7);
-		A4.followAnAccount(GHead, A1);
+		A3.followAnAccount(GHead, A1);
 		A4.followAnAccount(GHead, A7);
-		A5.followAnAccount(GHead, A2);
+		A4.followAnAccount(GHead, A1);
 		A5.followAnAccount(GHead, A7);
-		A6.followAnAccount(GHead, A2);
+		A5.followAnAccount(GHead, A2);
 		A6.followAnAccount(GHead, A7);
-		A7.followAnAccount(GHead, A4);
-		A7.followAnAccount(GHead, A5);
+		A6.followAnAccount(GHead, A2);
 		A7.followAnAccount(GHead, A6);
+		A7.followAnAccount(GHead, A5);
+		A7.followAnAccount(GHead, A4);
 	}
 
 	void login(Scanner sc)
