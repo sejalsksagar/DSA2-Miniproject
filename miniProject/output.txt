@@ -1,0 +1,573 @@
+____________________________________
+************* TWITTER **************
+0. Exit
+1. Sign up
+2. Log in
+Enter your choice: 2
+____________________________________
+Enter username: sejal00
+Enter password: 111
+Login successful.
+_________________________________________
+
+******** Welcome @sejal00 *********
+
+0. Log out
+1. View your profile
+2. Search a user
+3. Alphabetically sorted list of usernames
+4. Follow an user
+5. Unfollow an user
+6. Followings at k-levels
+7. Most popular users
+8. Tweet
+9. Display users graph adjacency list
+Enter your choice: 3
+_________________________________________
+Alphabetically sorted list of usernames (AVL Tree Inorder Traversal)
+	USERNAME		NAME
+-----------------------------------------
+     akanksha02    Akanksha Kulkarni
+
+       amruta03       Amruta Kotgire
+
+      apoorva04           Apporva S.
+
+       ketaki01       Ketaki Kothale
+
+       nikita06            Nikita M.
+
+       saniya07            Saniya P.
+
+        sejal00     Sejal Kshirsagar
+
+       shreya05            Shreya G.
+
+_________________________________________
+
+******** Welcome @sejal00 *********
+
+0. Log out
+1. View your profile
+2. Search a user
+3. Alphabetically sorted list of usernames
+4. Follow an user
+5. Unfollow an user
+6. Followings at k-levels
+7. Most popular users
+8. Tweet
+9. Display users graph adjacency list
+Enter your choice: 9
+_________________________________________
+USERS GRAPH USING ADJACENCY LIST :
+
+sejal00 -> ketaki01 -> akanksha02 -> 
+
+ketaki01 -> amruta03 -> apoorva04 -> 
+
+akanksha02 -> shreya05 -> nikita06 -> 
+
+amruta03 -> ketaki01 -> saniya07 -> 
+
+apoorva04 -> ketaki01 -> saniya07 -> 
+
+shreya05 -> akanksha02 -> saniya07 -> 
+
+nikita06 -> akanksha02 -> saniya07 -> 
+
+saniya07 -> apoorva04 -> shreya05 -> nikita06 -> 
+
+_________________________________________
+
+******** Welcome @sejal00 *********
+
+0. Log out
+1. View your profile
+2. Search a user
+3. Alphabetically sorted list of usernames
+4. Follow an user
+5. Unfollow an user
+6. Followings at k-levels
+7. Most popular users
+8. Tweet
+9. Display users graph adjacency list
+Enter your choice: 6
+_________________________________________
+Followings at k-levels (BFS) : 
+
+    sejal00            ...Level 0
+
+    ketaki01    akanksha02            ...Level 1
+
+    amruta03    apoorva04    shreya05    nikita06            ...Level 2
+
+    saniya07            ...Level 3
+
+
+
+_________________________________________
+
+******** Welcome @sejal00 *********
+
+0. Log out
+1. View your profile
+2. Search a user
+3. Alphabetically sorted list of usernames
+4. Follow an user
+5. Unfollow an user
+6. Followings at k-levels
+7. Most popular users
+8. Tweet
+9. Display users graph adjacency list
+Enter your choice: 7
+_________________________________________
+	Username 	 Number of Followers
+
+        saniya07          4
+      akanksha02          3
+        ketaki01          3
+        shreya05          2
+       apoorva04          2
+        nikita06          2
+        amruta03          1
+         sejal00          0
+_________________________________________
+
+******** Welcome @sejal00 *********
+
+0. Log out
+1. View your profile
+2. Search a user
+3. Alphabetically sorted list of usernames
+4. Follow an user
+5. Unfollow an user
+6. Followings at k-levels
+7. Most popular users
+8. Tweet
+9. Display users graph adjacency list
+Enter your choice: 0
+____________________________________
+************* TWITTER **************
+0. Exit
+1. Sign up
+2. Log in
+Enter your choice: 1
+____________________________________
+Enter username: kajal21
+Enter name: Kajal Tiwari
+Enter password: myacc
+Your account has been successfully created!
+____________________________________
+************* TWITTER **************
+0. Exit
+1. Sign up
+2. Log in
+Enter your choice: 2
+____________________________________
+Enter username: kajal21
+Enter password: myacc
+Login successful.
+_________________________________________
+
+******** Welcome @kajal21 *********
+
+0. Log out
+1. View your profile
+2. Search a user
+3. Alphabetically sorted list of usernames
+4. Follow an user
+5. Unfollow an user
+6. Followings at k-levels
+7. Most popular users
+8. Tweet
+9. Display users graph adjacency list
+Enter your choice: 1
+_________________________________________
+------------------------------------------------
+****** KAJAL TIWARI ******
+@kajal21
+Joined MAY 2021
+
+0 Tweets
+0 Following   0 Followers
+------------------------------------------------
+____________________________________
+ ************ VIEW ************
+0. Back
+1. Following
+2. Followers
+3. Tweets
+Enter your choice: 0
+____________________________________
+_________________________________________
+
+******** Welcome @kajal21 *********
+
+0. Log out
+1. View your profile
+2. Search a user
+3. Alphabetically sorted list of usernames
+4. Follow an user
+5. Unfollow an user
+6. Followings at k-levels
+7. Most popular users
+8. Tweet
+9. Display users graph adjacency list
+Enter your choice: 2
+_________________________________________
+Enter username to search: saniya07
+Username found.
+------------------------------------------------
+****** SANIYA P. ******
+@saniya07
+Joined MAY 2021
+
+0 Tweets
+3 Following   4 Followers
+------------------------------------------------
+____________________________________
+ ************ VIEW ************
+0. Back
+1. Following
+2. Followers
+3. Tweets
+Enter your choice: 1
+____________________________________
+FOLLOWING : 
+apoorva04
+shreya05
+nikita06
+____________________________________
+ ************ VIEW ************
+0. Back
+1. Following
+2. Followers
+3. Tweets
+Enter your choice: 2
+____________________________________
+FOLLOWERS : 
+amruta03
+apoorva04
+shreya05
+nikita06
+____________________________________
+ ************ VIEW ************
+0. Back
+1. Following
+2. Followers
+3. Tweets
+Enter your choice: 3
+____________________________________
+No tweets yet!
+____________________________________
+ ************ VIEW ************
+0. Back
+1. Following
+2. Followers
+3. Tweets
+Enter your choice: 0
+____________________________________
+_________________________________________
+
+******** Welcome @kajal21 *********
+
+0. Log out
+1. View your profile
+2. Search a user
+3. Alphabetically sorted list of usernames
+4. Follow an user
+5. Unfollow an user
+6. Followings at k-levels
+7. Most popular users
+8. Tweet
+9. Display users graph adjacency list
+Enter your choice: 4
+_________________________________________
+Enter username to follow: sejal00
+------------------------------------------------
+****** SEJAL KSHIRSAGAR ******
+@sejal00
+Joined MAY 2021
+
+0 Tweets
+2 Following   1 Followers
+------------------------------------------------
+You now follow @sejal00
+_________________________________________
+
+******** Welcome @kajal21 *********
+
+0. Log out
+1. View your profile
+2. Search a user
+3. Alphabetically sorted list of usernames
+4. Follow an user
+5. Unfollow an user
+6. Followings at k-levels
+7. Most popular users
+8. Tweet
+9. Display users graph adjacency list
+Enter your choice: 4
+_________________________________________
+Enter username to follow: ketaki01
+------------------------------------------------
+****** KETAKI KOTHALE ******
+@ketaki01
+Joined MAY 2021
+
+0 Tweets
+2 Following   4 Followers
+------------------------------------------------
+You now follow @ketaki01
+_________________________________________
+
+******** Welcome @kajal21 *********
+
+0. Log out
+1. View your profile
+2. Search a user
+3. Alphabetically sorted list of usernames
+4. Follow an user
+5. Unfollow an user
+6. Followings at k-levels
+7. Most popular users
+8. Tweet
+9. Display users graph adjacency list
+Enter your choice: 4
+_________________________________________
+Enter username to follow: saniya07
+------------------------------------------------
+****** SANIYA P. ******
+@saniya07
+Joined MAY 2021
+
+0 Tweets
+3 Following   5 Followers
+------------------------------------------------
+You now follow @saniya07
+_________________________________________
+
+******** Welcome @kajal21 *********
+
+0. Log out
+1. View your profile
+2. Search a user
+3. Alphabetically sorted list of usernames
+4. Follow an user
+5. Unfollow an user
+6. Followings at k-levels
+7. Most popular users
+8. Tweet
+9. Display users graph adjacency list
+Enter your choice: 1
+_________________________________________
+------------------------------------------------
+****** KAJAL TIWARI ******
+@kajal21
+Joined MAY 2021
+
+0 Tweets
+3 Following   0 Followers
+------------------------------------------------
+____________________________________
+ ************ VIEW ************
+0. Back
+1. Following
+2. Followers
+3. Tweets
+Enter your choice: 1
+____________________________________
+FOLLOWING : 
+saniya07
+ketaki01
+sejal00
+____________________________________
+ ************ VIEW ************
+0. Back
+1. Following
+2. Followers
+3. Tweets
+Enter your choice: 2
+____________________________________
+No followers yet.
+____________________________________
+ ************ VIEW ************
+0. Back
+1. Following
+2. Followers
+3. Tweets
+Enter your choice: 00
+____________________________________
+_________________________________________
+
+******** Welcome @kajal21 *********
+
+0. Log out
+1. View your profile
+2. Search a user
+3. Alphabetically sorted list of usernames
+4. Follow an user
+5. Unfollow an user
+6. Followings at k-levels
+7. Most popular users
+8. Tweet
+9. Display users graph adjacency list
+Enter your choice: 5
+_________________________________________
+Enter username to unfollow: ketaki01
+------------------------------------------------
+****** KETAKI KOTHALE ******
+@ketaki01
+Joined MAY 2021
+
+0 Tweets
+2 Following   3 Followers
+------------------------------------------------
+You unfollowed @ketaki01
+_________________________________________
+
+******** Welcome @kajal21 *********
+
+0. Log out
+1. View your profile
+2. Search a user
+3. Alphabetically sorted list of usernames
+4. Follow an user
+5. Unfollow an user
+6. Followings at k-levels
+7. Most popular users
+8. Tweet
+9. Display users graph adjacency list
+Enter your choice: 1
+_________________________________________
+------------------------------------------------
+****** KAJAL TIWARI ******
+@kajal21
+Joined MAY 2021
+
+0 Tweets
+2 Following   0 Followers
+------------------------------------------------
+____________________________________
+ ************ VIEW ************
+0. Back
+1. Following
+2. Followers
+3. Tweets
+Enter your choice: 0
+____________________________________
+_________________________________________
+
+******** Welcome @kajal21 *********
+
+0. Log out
+1. View your profile
+2. Search a user
+3. Alphabetically sorted list of usernames
+4. Follow an user
+5. Unfollow an user
+6. Followings at k-levels
+7. Most popular users
+8. Tweet
+9. Display users graph adjacency list
+Enter your choice: 8
+_________________________________________
+********** TWEET ***********
+What's happening? : 
+Thank you everyone!!
+_________________________________________
+
+******** Welcome @kajal21 *********
+
+0. Log out
+1. View your profile
+2. Search a user
+3. Alphabetically sorted list of usernames
+4. Follow an user
+5. Unfollow an user
+6. Followings at k-levels
+7. Most popular users
+8. Tweet
+9. Display users graph adjacency list
+Enter your choice: 0
+_________________________________________
+____________________________________
+************* TWITTER **************
+0. Exit
+1. Sign up
+2. Log in
+Enter your choice: 2
+____________________________________
+Enter username: ketaki01
+Enter password: 111
+Login successful.
+_________________________________________
+
+******** Welcome @ketaki01 *********
+
+0. Log out
+1. View your profile
+2. Search a user
+3. Alphabetically sorted list of usernames
+4. Follow an user
+5. Unfollow an user
+6. Followings at k-levels
+7. Most popular users
+8. Tweet
+9. Display users graph adjacency list
+Enter your choice: 2
+_________________________________________
+Enter username to search: kajal21
+Username found.
+------------------------------------------------
+****** KAJAL TIWARI ******
+@kajal21
+Joined MAY 2021
+
+1 Tweets
+2 Following   0 Followers
+------------------------------------------------
+____________________________________
+ ************ VIEW ************
+0. Back
+1. Following
+2. Followers
+3. Tweets
+Enter your choice: 3
+____________________________________
+************ TWEETS ***************
+@kajal21 tweet on 31 MAY 2021
+Thank you everyone!!
+-----------------------------------
+____________________________________
+ ************ VIEW ************
+0. Back
+1. Following
+2. Followers
+3. Tweets
+Enter your choice: 0
+____________________________________
+_________________________________________
+
+******** Welcome @ketaki01 *********
+
+0. Log out
+1. View your profile
+2. Search a user
+3. Alphabetically sorted list of usernames
+4. Follow an user
+5. Unfollow an user
+6. Followings at k-levels
+7. Most popular users
+8. Tweet
+9. Display users graph adjacency list
+Enter your choice: 0
+_________________________________________
+____________________________________
+************* TWITTER **************
+0. Exit
+1. Sign up
+2. Log in
+Enter your choice: 0
+____________________________________
+********* PROGRAM END ************
