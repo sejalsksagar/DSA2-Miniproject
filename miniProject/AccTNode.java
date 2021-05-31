@@ -1,12 +1,14 @@
 package miniProject;
 
-public class AccTNode {
+public class AccTNode
+{
 	int h;
 	Account A;
 	AccTNode left;
 	AccTNode right;
-	
-	AccTNode(Account A){
+
+	AccTNode(Account A)
+	{
 		h = 0;
 		this.A = A;
 		left = null;

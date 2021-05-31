@@ -160,7 +160,6 @@ public class Twitter
 			return null;
 	}
 
-
 	void addAccount(Account A)
 	{
 		// add account to graph
@@ -215,7 +214,7 @@ public class Twitter
 		A3.name = "Amruta Kotgire";
 		A3.setPassword("111");
 		addAccount(A3);
-		
+
 		Account A4 = new Account();
 		A4.username = "apoorva04";
 		A4.name = "Apporva S.";
@@ -227,7 +226,7 @@ public class Twitter
 		A5.name = "Shreya G.";
 		A5.setPassword("111");
 		addAccount(A5);
-		
+
 		Account A6 = new Account();
 		A6.username = "nikita06";
 		A6.name = "Nikita M.";
@@ -239,8 +238,8 @@ public class Twitter
 		A7.name = "Saniya P.";
 		A7.setPassword("111");
 		addAccount(A7);
-		
-		//creating default graph
+
+		// creating default graph
 		A0.followAnAccount(A2);
 		A0.followAnAccount(A1);
 		A1.followAnAccount(A4);
@@ -305,27 +304,30 @@ public class Twitter
 		if (loggedIn)
 			A.activity(sc, GHead);
 	}
-	
-	static void displayAVL() {
+
+	static void displayAVL()
+	{
 		if (accRoot == null)
-        { 
-        	System.out.println("NO ACCOUNTS AVAILABLE");
-            return;
-        }
-		System.out.println("\tUSERNAME" +"\t\t"+ "NAME");
+		{
+			System.out.println("NO ACCOUNTS AVAILABLE");
+			return;
+		}
+		System.out.println("\tUSERNAME" + "\t\t" + "NAME");
 		System.out.println("-----------------------------------------");
 		inorder(accRoot);
 	}
-	//AVL Tree Inorder traversal,L-V-R
-	static void inorder(AccTNode root)             
+
+	// AVL Tree Inorder traversal,L-V-R
+	static void inorder(AccTNode root)
 	{
-		if(root!=null) {
+		if (root != null)
+		{
 			inorder(root.left);
-	        System.out.format("%15s %20s",root.A.username,root.A.name);
-	        System.out.println("\n");
-	        inorder(root.right); 
+			System.out.format("%15s %20s", root.A.username, root.A.name);
+			System.out.println("\n");
+			inorder(root.right);
 		}
-    }
+	}
 
 	// To display adjacency list of graph
 	static void display()
