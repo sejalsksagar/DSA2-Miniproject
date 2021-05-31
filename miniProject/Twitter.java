@@ -241,23 +241,23 @@ public class Twitter
 		addAccount(A7);
 		
 		//creating default graph
-		A0.followAnAccount(GHead, A2);
-		A0.followAnAccount(GHead, A1);
-		A1.followAnAccount(GHead, A4);
-		A1.followAnAccount(GHead, A3);
-		A2.followAnAccount(GHead, A6);
-		A2.followAnAccount(GHead, A5);
-		A3.followAnAccount(GHead, A7);
-		A3.followAnAccount(GHead, A1);
-		A4.followAnAccount(GHead, A7);
-		A4.followAnAccount(GHead, A1);
-		A5.followAnAccount(GHead, A7);
-		A5.followAnAccount(GHead, A2);
-		A6.followAnAccount(GHead, A7);
-		A6.followAnAccount(GHead, A2);
-		A7.followAnAccount(GHead, A6);
-		A7.followAnAccount(GHead, A5);
-		A7.followAnAccount(GHead, A4);
+		A0.followAnAccount(A2);
+		A0.followAnAccount(A1);
+		A1.followAnAccount(A4);
+		A1.followAnAccount(A3);
+		A2.followAnAccount(A6);
+		A2.followAnAccount(A5);
+		A3.followAnAccount(A7);
+		A3.followAnAccount(A1);
+		A4.followAnAccount(A7);
+		A4.followAnAccount(A1);
+		A5.followAnAccount(A7);
+		A5.followAnAccount(A2);
+		A6.followAnAccount(A7);
+		A6.followAnAccount(A2);
+		A7.followAnAccount(A6);
+		A7.followAnAccount(A5);
+		A7.followAnAccount(A4);
 	}
 
 	void login(Scanner sc)
@@ -316,7 +316,7 @@ public class Twitter
 		System.out.println("-----------------------------------------");
 		inorder(accRoot);
 	}
-	//AVL Tree Inorder traversal,L-N-R
+	//AVL Tree Inorder traversal,L-V-R
 	static void inorder(AccTNode root)             
 	{
 		if(root!=null) {
@@ -327,10 +327,10 @@ public class Twitter
 		}
     }
 
-	//for debugging graph
+	// To display adjacency list of graph
 	static void display()
 	{
-		System.out.println("USERS GRAPH USING ADJACENY LIST :\n");
+		System.out.println("USERS GRAPH USING ADJACENCY LIST :\n");
 		for (AccGNode ii : GHead)
 		{
 			AccGNode pp = ii;

@@ -78,6 +78,7 @@ public class Account extends User
 							else
 							{
 								System.out.println("Username found.");
+								//F.viewProfile();
 								F.profile(sc, GHead);
 							}
 							break;
@@ -91,7 +92,7 @@ public class Account extends User
 							F = Twitter.searchUsername(search);
 							if (F == null) System.out.println("Entered username doesn't exist.");
 							else {
-								done = followAnAccount(GHead, F);
+								done = followAnAccount(F);
 								if(done) {
 									F.viewProfile();
 									System.out.println("You now follow @" + search);
@@ -105,7 +106,7 @@ public class Account extends User
 							F = Twitter.searchUsername(search);
 							if (F == null) System.out.println("Entered username doesn't exist.");
 							else {
-								done = unfollowAnAccount(GHead, F);
+								done = unfollowAnAccount(F);
 								if(done) {
 									F.viewProfile();
 									System.out.println("You unfollowed @" + search);
@@ -192,7 +193,7 @@ public class Account extends User
 		} while (ch != '0');
 	}
 	
-	boolean followAnAccount(ArrayList<AccGNode> GHead, Account F) {
+	boolean followAnAccount(Account F) {
 		AccGNode ptr = gHead;
 		while (ptr != null)
 		{
@@ -214,7 +215,7 @@ public class Account extends User
 		return true; //successfully followed 
 	}
 	
-	boolean unfollowAnAccount(ArrayList<AccGNode> GHead, Account F) {
+	boolean unfollowAnAccount(Account F) {
 		AccGNode prev = gHead;
 		AccGNode ptr = gHead.link;
 		while(ptr!=null) {
